@@ -96,10 +96,8 @@ def generate_pdf(client, job, ref, loi, ir, n, prog, dp, cpi, sample, prog_cost,
     pdf.set_font("Arial", "I", 10)
     pdf.cell(0, 10, "Prepared by PureSpectrum - All quotes valid for 30 days", ln=True, align="C")
 
-    buf = io.BytesIO()
-    pdf.output(buf)
-    buf.seek(0)
-    return buf
+    pdf_bytes = pdf.output(dest='S').encode('latin1')
+    return io.BytesIO(pdf_bytes)
 
 st.title("PureSpectrum Quote Generator")
 
