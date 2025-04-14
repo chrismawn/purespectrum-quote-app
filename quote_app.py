@@ -58,4 +58,4 @@ def generate_pdf(quote_df, audience_df, client, contact, company, ref, notes, pr
         pdf.cell(0, 10, "Audience:", ln=True)
         pdf.set_font("Arial", size=12)
         for _, row in audience_df.iterrows():
-            pdf.multi_cell(0, 8, f"- {row_
+            pdf.multi_cell(0, 8, f"- {row['Audience Description']}")
